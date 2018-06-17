@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.alviss.ungdungquanlyshop">
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_app"
+        android:label="Quản lý shop"
+        android:roundIcon="@mipmap/icon_app"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="Quản lý shop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mer_add"></activity>
+        <activity android:name=".mer_edit"></activity>
+        <activity android:name=".mer_type"></activity>
+        <activity android:name=".per_add"></activity>
+        <activity android:name=".per_edit"></activity>
+        <activity android:name=".per_type"></activity>
+        <activity android:name=".bill_detail"></activity>
+    </application>
+
+</manifest>
