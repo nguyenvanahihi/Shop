@@ -2,9 +2,7 @@ package com.example.alviss.ungdungquanlyshop;
 
 import java.io.Serializable;
 
-/**
- * Created by Alviss on 12/21/2017.
- */
+
 
 public class Mer implements Serializable {
     private int id;

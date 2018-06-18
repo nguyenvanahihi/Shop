@@ -1,8 +1,5 @@
 package com.example.alviss.ungdungquanlyshop;
 
-/**
- * Created by Alviss on 12/26/2017.
- */
 
 public interface SomeInterface {
 

@@ -13,9 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/27/2017.
- */
+
 
 public class bill_detail extends Activity {
     protected DBManager db;

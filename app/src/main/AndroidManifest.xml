@@ -26,6 +26,9 @@
         <activity android:name=".per_edit"></activity>
         <activity android:name=".per_type"></activity>
         <activity android:name=".bill_detail"></activity>
+        <activity android:name=".base.ExampleActivity">
+
+        </activity>
     </application>
 
 </manifest>

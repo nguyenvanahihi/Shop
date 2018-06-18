@@ -35,9 +35,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Alviss on 12/22/2017.
- */
+
 
 public class fragment_main extends Fragment implements SomeInterface {
     protected View myView;

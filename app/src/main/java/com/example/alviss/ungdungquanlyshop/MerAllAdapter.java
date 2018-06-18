@@ -7,34 +7,50 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.alviss.ungdungquanlyshop.models.HangHoa;
+
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/24/2017.
- */
+
 
 public class MerAllAdapter extends BaseAdapter {
-    private List<Mer> listData;
+    //private List<Mer> listData;
+    private ArrayList<HangHoa> arrHangHoa;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public MerAllAdapter(Context aContext,  List<Mer> listData) {
-        this.context = aContext;
-        this.listData = listData;
-        layoutInflater = LayoutInflater.from(aContext);
+//    public MerAllAdapter(Context aContext,  List<Mer> listData) {
+//        this.context = aContext;
+//        this.listData = listData;
+//        layoutInflater = LayoutInflater.from(aContext);
+//    }
+public MerAllAdapter(Context aContext,  ArrayList<HangHoa> listData) {
+    this.context = aContext;
+    //this.listData = listData;
+    this.arrHangHoa = listData;
+    layoutInflater = LayoutInflater.from(aContext);
+}
+
+    public ArrayList<HangHoa> getArrHangHoa() {
+        return arrHangHoa;
     }
 
-    public List<Mer> getListData(){
-        return listData;
+    public void setArrHangHoa(ArrayList<HangHoa> arrHangHoa) {
+        this.arrHangHoa = arrHangHoa;
+    }
+
+    public ArrayList<HangHoa> getListData(){
+        return arrHangHoa;
     }
 
     @Override
     public int getCount() {
-        return listData.size();
+        return arrHangHoa.size();
     }
 
     @Override
-    public Mer getItem(int position) {return listData.get(position);}
+    public HangHoa getItem(int position) {return arrHangHoa.get(position);}
 
     @Override
     public long getItemId(int position) {
@@ -55,17 +71,22 @@ public class MerAllAdapter extends BaseAdapter {
         }
         else holder = (ViewHolder) convertView.getTag();
 
-        Mer mer = this.listData.get(position);
-        holder.nameView.setText(mer.getName());
-        if (mer.getSell()==1)
-            holder.sellView.setText("Đang bán");
-        else
-            holder.sellView.setText("Chưa bắt đầu bán");
-        holder.sumView.setText(String.valueOf(mer.getSum() + " " + mer.getCount()));
+        //Mer mer = this.listData.get(position);
+        HangHoa mer = this.arrHangHoa.get(position);
+        //holder.nameView.setText(mer.getName());
+        holder.nameView.setText(mer.getMNAME());
+//        if (mer.getSell()==1)
+//            holder.sellView.setText("Đang bán");
+//        else
+//            holder.sellView.setText("Chưa bắt đầu bán");
+       // holder.sumView.setText(String.valueOf(mer.getSum() + " " + mer.getCount()));
+        holder.sumView.setText(String.valueOf(mer.getMSUM() + " " + mer.getMCOUNT()));
         //String.format("%,d", Long.parseLong(view.toString()));
-        String d = String.valueOf(mer.getPrice());
+        //String d = String.valueOf(mer.getPrice());
+        String d = String.valueOf(mer.getMPRICE());
         holder.priceView.setText(String.format("%,d", Long.parseLong(d)));
-        holder.typeView.setText(String.valueOf(mer.getType()));
+        //holder.typeView.setText(String.valueOf(mer.getType()));
+        holder.typeView.setText(String.valueOf(mer.getMTYPE()));
         return convertView;
     }
 

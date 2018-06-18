@@ -17,12 +17,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.alviss.ungdungquanlyshop.models.HoaDon;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/27/2017.
- */
 
 public class fragment_bill extends Fragment {
     protected View myView;
@@ -30,6 +29,7 @@ public class fragment_bill extends Fragment {
     protected List<Bill> show = new ArrayList<Bill>();
     protected ListView listView;
     protected BillAllAdapter adapter;
+    public static ArrayList<HoaDon> arrHoaDon=new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -105,7 +105,7 @@ public class fragment_bill extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(myView.getContext(),bill_detail.class);
-                intent.putExtra("ID",adapter.getItem(i).getId());
+                intent.putExtra("ID",adapter.getItem(i)._id);
                 startActivityForResult(intent,20);
             }
         });
@@ -124,7 +124,8 @@ public class fragment_bill extends Fragment {
     protected void updatelist(List<Bill> templist){
         show.clear();
         show.addAll(templist);
-        adapter = new BillAllAdapter(myView.getContext(),show);
+        //adapter = new BillAllAdapter(myView.getContext(),show);
+        adapter = new BillAllAdapter(myView.getContext(),arrHoaDon);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

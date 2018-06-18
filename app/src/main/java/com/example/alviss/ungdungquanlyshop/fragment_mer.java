@@ -20,18 +20,19 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.alviss.ungdungquanlyshop.models.HangHoa;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/21/2017.
- */
+
 
 public class fragment_mer extends Fragment{
     protected View myView;
     protected DBManager db;
     protected ListView listView;
     protected List<Mer> show = new ArrayList<Mer>();
+    public static ArrayList<HangHoa> arrHangHoa =new ArrayList<>();
     protected MerAllAdapter adapter;
     protected Spinner spinnertype;
     protected List<String> listtype = new ArrayList<String>();
@@ -102,7 +103,7 @@ public class fragment_mer extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(myView.getContext(),mer_edit.class);
-                intent.putExtra("ID",adapter.getItem(i).getId());
+                intent.putExtra("ID",adapter.getItem(i)._id);
                 startActivityForResult(intent,20);
             }
         });
@@ -165,7 +166,8 @@ public class fragment_mer extends Fragment{
     {
         show.clear();
         show=listtemp;
-        adapter = new MerAllAdapter(myView.getContext(),show);
+       // adapter = new MerAllAdapter(myView.getContext(),show);
+        adapter = new MerAllAdapter(myView.getContext(), arrHangHoa);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

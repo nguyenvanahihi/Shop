@@ -7,34 +7,36 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.alviss.ungdungquanlyshop.models.KhachHang;
+
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/24/2017.
- */
+
 
 public class PerAllAdapter extends BaseAdapter {
-    private List<Person> listData;
+    //private List<Person> listData;
+    private ArrayList<KhachHang> arrKhachHang;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public PerAllAdapter(Context aContext, List<Person> listData) {
+    public PerAllAdapter(Context aContext, ArrayList<KhachHang> listData) {
         this.context = aContext;
-        this.listData = listData;
+        this.arrKhachHang = listData;
         layoutInflater = LayoutInflater.from(aContext);
     }
 
-    public List<Person> getListData(){
-        return listData;
+    public ArrayList<KhachHang> getListData(){
+        return arrKhachHang;
     }
 
     @Override
     public int getCount() {
-        return listData.size();
+        return arrKhachHang.size();
     }
 
     @Override
-    public Person getItem(int position) {return listData.get(position);}
+    public KhachHang getItem(int position) {return arrKhachHang.get(position);}
 
     @Override
     public long getItemId(int position) {
@@ -54,11 +56,11 @@ public class PerAllAdapter extends BaseAdapter {
         }
         else holder = (ViewHolder) convertView.getTag();
 
-        Person person = this.listData.get(position);
-        holder.nameView.setText(person.getName());
-        holder.phoneView.setText(person.getPhone());
-        holder.typeView.setText(person.getType());
-        holder.addView.setText(person.getAdd());
+        KhachHang person = this.arrKhachHang.get(position);
+        holder.nameView.setText(person.getTenKhachHang());
+        holder.phoneView.setText(person.getSoDienThoai());
+        holder.typeView.setText(person.get_id());
+        holder.addView.setText(person.getDiaChi());
         return convertView;
     }
 

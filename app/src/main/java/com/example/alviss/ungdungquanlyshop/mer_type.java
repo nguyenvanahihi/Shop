@@ -20,9 +20,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-/**
- * Created by Alviss on 12/25/2017.
- */
+
 
 public class mer_type extends Activity {
     DBManager db;

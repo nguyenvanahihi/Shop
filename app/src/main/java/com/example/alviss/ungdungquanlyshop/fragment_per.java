@@ -17,12 +17,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.alviss.ungdungquanlyshop.models.KhachHang;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/21/2017.
- */
+
 
 public class fragment_per extends Fragment{
     View myView;
@@ -32,6 +32,7 @@ public class fragment_per extends Fragment{
     protected PerAllAdapter adapter;
     protected List<String> listtype = new ArrayList<String>();
     protected Spinner spinnertype;
+    public static ArrayList<KhachHang> arrKhachHang=new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class fragment_per extends Fragment{
                 searchname.setText("");
                 searchphone.setText("");
                 Intent intent = new Intent(myView.getContext(), per_edit.class);
-                intent.putExtra("ID",adapter.getItem(i).getId());
+                intent.putExtra("ID",adapter.getItem(i)._id);
                 startActivityForResult(intent,20);
             }
         });
@@ -177,7 +178,7 @@ public class fragment_per extends Fragment{
     {
         show.clear();
         show=listtemp;
-        adapter = new PerAllAdapter(myView.getContext(),show);
+        adapter = new PerAllAdapter(myView.getContext(),arrKhachHang);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

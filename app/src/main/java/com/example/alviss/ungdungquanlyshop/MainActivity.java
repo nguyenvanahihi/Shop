@@ -21,11 +21,13 @@ import android.widget.GridLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.alviss.ungdungquanlyshop.base.BaseActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     List<Fragment> listfr;//list fragment cua toan bo ung dung, luu tru lai de de xu ly
     DBManager db; // co so du lieu cua toan bo ung dung
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.area,listfr.get(0));
         ft.commit();
+        firebaseFunctions.getHoaDon();
+        firebaseFunctions.getHangHoa();
+        firebaseFunctions.getKhachHang();
 
 
     }

@@ -15,9 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alviss on 12/23/2017.
- */
+
 
 public class mer_add extends Activity {
     protected DBManager db;

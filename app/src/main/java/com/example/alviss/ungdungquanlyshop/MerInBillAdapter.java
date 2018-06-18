@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by Alviss on 12/24/2017.
- */
 
 public class MerInBillAdapter extends BaseAdapter {
     private List<Mer> listData;
