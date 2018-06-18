@@ -17,17 +17,17 @@ import java.util.List;
 
 public class BillDetailAdapter extends BaseAdapter {
     //private List<BillItem> listData;
-    private ArrayList<ChiTietHoaDon> listData;
+    private List<ChiTietHoaDon> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public BillDetailAdapter(Context aContext, ArrayList<ChiTietHoaDon> listData) {
+    public BillDetailAdapter(Context aContext, List<ChiTietHoaDon> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
     }
 
-    public ArrayList<ChiTietHoaDon> getListData(){
+    public List<ChiTietHoaDon> getListData(){
         return listData;
     }
 

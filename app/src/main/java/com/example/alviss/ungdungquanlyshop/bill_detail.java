@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.alviss.ungdungquanlyshop.models.ChiTietHoaDon;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class bill_detail extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bill_edit);
         db = DBManager.getInstance(getBaseContext());
-        List<BillItem> show = new ArrayList<BillItem>();
+        List<ChiTietHoaDon> show = new ArrayList<>();
 
         TextView pername = (TextView) findViewById(R.id.text_bill_item_pername);
         TextView offpr = (TextView) findViewById(R.id.text_bill_item_offpr);
@@ -36,7 +38,7 @@ public class bill_detail extends Activity {
 
         if (getIntent().getExtras() != null) {
             idt = getIntent().getIntExtra("ID", 0);
-            show=db.getBDitem(idt);
+//            show=db.getBDitem(idt);
             BillDetailAdapter adapter = new BillDetailAdapter(this,show);
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
